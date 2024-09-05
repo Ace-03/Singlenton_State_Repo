@@ -16,6 +16,8 @@ namespace Chapter.Singleton
             _sessionStartTime = DateTime.Now;
             Debug.Log(
             "Game session start @: " + DateTime.Now);
+
+            
         }
         void OnApplicationQuit()
         {
@@ -29,11 +31,12 @@ namespace Chapter.Singleton
         }
         void OnGUI()
         {
-            if (GUILayout.Button("Next Scene"))
-            {
-                SceneManager.LoadScene(
-                SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            if(SceneManager.GetActiveScene().name != "Scene_03")
+                if (GUILayout.Button("Next Scene"))
+                {
+                    SceneManager.LoadScene(
+                    SceneManager.GetActiveScene().buildIndex + 1);
+                }
         }
     }
 }
